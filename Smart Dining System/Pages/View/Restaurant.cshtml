@@ -1,0 +1,23 @@
+﻿@page
+@model Smart_Dining_System.Pages.View.RestaurantModel
+@{
+}
+<div style="display: flex; flex-wrap: wrap;justify-content: space-between; align-items: center">
+    @foreach (var item in Model.listRestaurant)
+    {
+        <!--u can set max-width up so the containers become bigger-->
+        <div style="max-width: 25em; margin:10px 10px 10px 10px">
+            <div class="flex-md-row">
+                <div class="card text-white bg-dark">
+                    <img src="/css/images/@(item.Image).png" class="card-img-top" alt="@(item.Description)">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="card-text">@item.Description</p>
+                        <a asp-route-id="@item.Id" asp-page="/View/RestaurantMenu" class="btn btn-primary">Explore menu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+    }
+</div>
